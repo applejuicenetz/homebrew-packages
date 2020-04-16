@@ -22,7 +22,7 @@ class ApplejuiceCore < Formula
   depends_on Java8Requirement
 
   resource "ajnetmask" do
-    url "https://github.com/appleJuiceNET/applejuice-libajnetmask/releases/download/1.0.0/libajnetmask.jnilib"
+    url "https://github.com/appleJuicenet/ajnetmask/releases/download/1.0.0/libajnetmask.jnilib"
     sha256 "0371f17d01ff8f2d6ca69fb61e5d77157dedb788aecd3a0aa22525696b78538f"
   end
 
