@@ -4,6 +4,7 @@ cask 'applejuice-gui' do
   url "https://github.com/appleJuiceNET/gui-java/releases/download/#{version}/AJCoreGUI.macOS.zip"
   name 'AJCoreGUI'
   homepage 'https://applejuicenet.de'
+  depends_on macos: '>= :mavericks'
 
   auto_updates true
 
