@@ -1,10 +1,9 @@
 cask 'applejuice-gui' do
-  version '0.80.1'
-  sha256 '91b6ba68a735159268ff6f8ed8a51e07957abf32045c1e2ef88bac75b2a8267e'
+  version '0.81.0'
+  sha256 '4b14d7e5a07033afadbe3bd6d9ba65961331b1e77a43d9a2d0f8fb902cd5216e'
   url "https://github.com/appleJuiceNET/gui-java/releases/download/#{version}/AJCoreGUI.macOS.zip"
   name 'AJCoreGUI'
   homepage 'https://applejuicenet.de'
-  depends_on macos: '>= :mavericks'
 
   auto_updates true
 

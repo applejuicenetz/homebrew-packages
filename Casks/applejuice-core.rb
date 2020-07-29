@@ -5,7 +5,6 @@ cask 'applejuice-core' do
   name 'AjCore'
   homepage 'https://applejuicenet.de'
   depends_on arch: :intel
-  depends_on macos: '>= :mavericks'
   depends_on cask: 'adoptopenjdk/openjdk/adoptopenjdk8-jre'
 
   auto_updates true

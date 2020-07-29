@@ -4,7 +4,6 @@ cask 'applejuice-url-handler' do
   url "https://github.com/appleJuiceNET/gui-java/releases/download/#{version}/AjUrlHandler.macOS.zip"
   name 'AjUrlHandler'
   homepage 'https://applejuicenet.de'
-  depends_on macos: '>= :mavericks'
 
   auto_updates true
 
