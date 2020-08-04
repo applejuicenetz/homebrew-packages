@@ -8,14 +8,12 @@ Easy installation guide to install the native `AJCore` and `AJCoreGUI` Apps on m
 
 ## install 
 
-- `brew tap applejuicenet/packages` 
-- `brew cask install applejuice-core`
-- `brew cask install applejuice-gui`
-- `brew cask install applejuice-url-handler`
+- `brew cask install applejuicenet/packages/applejuice-core`
+- `brew cask install applejuicenet/packages/applejuice-gui`
+- `brew cask install applejuicenet/packages/applejuice-url-handler`
 
 ## uninstall
 
-- `brew cask uninstall applejuice-url-handler`
-- `brew cask uninstall applejuice-gui`
-- `brew cask uninstall applejuice-core`
-- `brew untap applejuicenet/packages` 
+- `brew cask uninstall applejuicenet/packages/applejuice-url-handler`
+- `brew cask uninstall applejuicenet/packages/applejuice-gui`
+- `brew cask uninstall applejuicenet/packages/applejuice-core`
