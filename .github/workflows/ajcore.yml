@@ -1,0 +1,46 @@
+name: 'ajcore'
+
+on:
+    workflow_dispatch:
+    repository_dispatch:
+        types: [ core-update ]
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v2
+
+            -   name: get latest tag
+                id: latestrelease
+                run: |
+                    echo "::set-output name=version::$(curl -s https://api.github.com/repos/applejuicenet/core/releases/latest | jq -r '.tag_name')"
+
+            -   name: confirm tag
+                run: |
+                    echo ${{ steps.latestrelease.outputs.releasetag }}
+
+            -   name: download and validate
+                run: |
+                    curl -L -s https://github.com/applejuicenet/core/releases/download/${{ steps.latestrelease.outputs.version }}/AJCore.macOS.zip -o AJCore.macOS.zip
+                    curl -L -s https://github.com/applejuicenet/core/releases/download/${{ steps.latestrelease.outputs.version }}/AJCore.macOS.zip.sha256.txt -o AJCore.macOS.zip.sha256.txt
+                    shasum -c AJCore.macOS.zip.sha256.txt
+
+            -   name: get shasum
+                id: latestshasum
+                run: |
+                    echo "::set-output name=hash::$(cat AJCore.macOS.zip.sha256.txt | awk '{print $1}')"
+
+            -   name: confirm shasum
+                run: |
+                    echo ${{ steps.latestshasum.outputs.hash }}
+
+            -   name: update cask
+                run: |
+                    sed 's#_VERSION_#${{ steps.latestrelease.outputs.version }}#g; s#_SHASUM_#${{ steps.latestshasum.outputs.hash }}#g' applejuice-core.rb.tpl > Casks/applejuice-core.rb
+
+            -   uses: stefanzweifel/git-auto-commit-action@v4
+                with:
+                    file_pattern: Casks/*.rb
+                    commit_message: Update Core to ${{ steps.latestrelease.outputs.releasetag }}

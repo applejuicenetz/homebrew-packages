@@ -1,12 +1,12 @@
-name: 'update'
+name: 'ajgui'
 
 on:
-    repository_dispatch:
     workflow_dispatch:
-    push:
+    repository_dispatch:
+        types: [ gui-update ]
 
 jobs:
-    gui:
+    update:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout
@@ -36,6 +36,11 @@ jobs:
                 run: |
                     echo ${{ steps.latestshasum.outputs.hash }}
 
-#            -   uses: stefanzweifel/git-auto-commit-action@v4
-#                with:
-#                    commit_message: Update GUI to ${{ steps.latestrelease.outputs.releasetag }}
+            -   name: update cask
+                run: |
+                    sed 's#_VERSION_#${{ steps.latestrelease.outputs.version }}#g; s#_SHASUM_#${{ steps.latestshasum.outputs.hash }}#g' applejuice-gui.rb.tpl > Casks/applejuice-gui.rb
+
+            -   uses: stefanzweifel/git-auto-commit-action@v4
+                with:
+                    file_pattern: Casks/*.rb
+                    commit_message: Update GUI to ${{ steps.latestrelease.outputs.releasetag }}
