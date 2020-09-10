@@ -4,7 +4,6 @@ cask 'applejuice-core' do
   url "https://github.com/appleJuiceNET/core/releases/download/#{version}/AJCore.macOS.zip"
   name 'AjCore'
   homepage 'https://applejuicenet.de'
-  license 'proprietary'
   depends_on arch: :intel
 
   auto_updates true
