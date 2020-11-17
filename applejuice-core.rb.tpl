@@ -3,7 +3,7 @@ cask 'applejuice-core' do
   sha256 '_SHASUM_'
   url "https://github.com/applejuicenetz/core/releases/download/#{version}/AJCore.macOS.zip"
   name 'AjCore'
-  homepage 'https://applejuicenet.de'
+  homepage 'https://applejuicenet.cc'
   license 'proprietary'
   depends_on arch: :intel
 

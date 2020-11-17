@@ -3,7 +3,7 @@ cask 'applejuice-gui' do
   sha256 '_SHASUM_'
   url "https://github.com/applejuicenetz/gui-java/releases/download/#{version}/AJCoreGUI.macOS.zip"
   name 'AJCoreGUI'
-  homepage 'https://applejuicenet.de'
+  homepage 'https://applejuicenet.cc'
 
   auto_updates true
 
