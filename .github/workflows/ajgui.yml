@@ -15,7 +15,7 @@ jobs:
             -   name: get latest tag
                 id: latestrelease
                 run: |
-                    echo "::set-output name=version::$(curl -s https://api.github.com/repos/applejuicenet/gui-java/releases/latest | jq -r '.tag_name')"
+                    echo "::set-output name=version::$(curl -s https://api.github.com/repos/applejuicenetz/gui-java/releases/latest | jq -r '.tag_name')"
 
             -   name: confirm tag
                 run: |
@@ -23,8 +23,8 @@ jobs:
 
             -   name: download and validate
                 run: |
-                    curl -L -s https://github.com/applejuicenet/gui-java/releases/download/${{ steps.latestrelease.outputs.version }}/AJCoreGUI.macOS.zip -o AJCoreGUI.macOS.zip
-                    curl -L -s https://github.com/applejuicenet/gui-java/releases/download/${{ steps.latestrelease.outputs.version }}/AJCoreGUI.macOS.zip.sha256.txt -o AJCoreGUI.macOS.zip.sha256.txt
+                    curl -L -s https://github.com/applejuicenetz/gui-java/releases/download/${{ steps.latestrelease.outputs.version }}/AJCoreGUI.macOS.zip -o AJCoreGUI.macOS.zip
+                    curl -L -s https://github.com/applejuicenetz/gui-java/releases/download/${{ steps.latestrelease.outputs.version }}/AJCoreGUI.macOS.zip.sha256.txt -o AJCoreGUI.macOS.zip.sha256.txt
                     shasum -c AJCoreGUI.macOS.zip.sha256.txt
 
             -   name: get shasum

@@ -15,7 +15,7 @@ jobs:
             -   name: get latest tag
                 id: latestrelease
                 run: |
-                    echo "::set-output name=version::$(curl -s https://api.github.com/repos/applejuicenet/core/releases/latest | jq -r '.tag_name')"
+                    echo "::set-output name=version::$(curl -s https://api.github.com/repos/applejuicenetz/core/releases/latest | jq -r '.tag_name')"
 
             -   name: confirm tag
                 run: |
@@ -23,8 +23,8 @@ jobs:
 
             -   name: download and validate
                 run: |
-                    curl -L -s https://github.com/applejuicenet/core/releases/download/${{ steps.latestrelease.outputs.version }}/AJCore.macOS.zip -o AJCore.macOS.zip
-                    curl -L -s https://github.com/applejuicenet/core/releases/download/${{ steps.latestrelease.outputs.version }}/AJCore.macOS.zip.sha256.txt -o AJCore.macOS.zip.sha256.txt
+                    curl -L -s https://github.com/applejuicenetz/core/releases/download/${{ steps.latestrelease.outputs.version }}/AJCore.macOS.zip -o AJCore.macOS.zip
+                    curl -L -s https://github.com/applejuicenetz/core/releases/download/${{ steps.latestrelease.outputs.version }}/AJCore.macOS.zip.sha256.txt -o AJCore.macOS.zip.sha256.txt
                     shasum -c AJCore.macOS.zip.sha256.txt
 
             -   name: get shasum
