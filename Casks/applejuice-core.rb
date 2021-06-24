@@ -5,7 +5,6 @@ cask 'applejuice-core' do
   name 'AjCore'
   homepage 'https://applejuicenet.cc'
   license 'proprietary'
-  depends_on arch: :intel
 
   auto_updates true
 
